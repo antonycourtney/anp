@@ -1,0 +1,9 @@
+#
+# AC: Common definitions for trying to build and link BSD sources
+#
+TOPDIR = /export/home/antony/src/anp/generic
+
+CC = gcc
+# AC: added -DPSR_IMPL to prevent inclusion of SPARC assembler to *really*
+# try and set processor status register!
+CFLAGS = $(EXTRA_CFLAGS) -g -I$(TOPDIR) -I$(TOPDIR)/include -I$(TOPDIR)/../uspace -DKERNEL -DINET -DNSL=1 -DNBPFILTER=1 -DPSR_IMPL

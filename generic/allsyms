@@ -1,0 +1,665 @@
+Symbol: [_insque]		referenced in file: net/raw_cb.c
+References:
+Definition:
+(no matches found)
+
+Symbol: [_remque]		referenced in file: net/raw_cb.c
+References:
+Definition:
+(no matches found)
+
+Symbol: [anp_sys_free]		referenced in file: kern/uipc_socket2.c
+References:
+kern/sys_generic.c:418:					anp_sys_free(memp, M_IOCTLOPS);
+kern/sys_generic.c:492:		anp_sys_free(memp, M_IOCTLOPS);
+kern/uipc_socket2.c:173:		(void) anp_sys_free((caddr_t)so, M_SOCKET);
+net/bpf.c:812:			anp_sys_free((caddr_t)old, M_DEVBUF);
+net/bpf.c:828:			anp_sys_free((caddr_t)old, M_DEVBUF);
+net/bpf.c:832:	anp_sys_free((caddr_t)fcode, M_DEVBUF);
+net/bpf.c:1165:		anp_sys_free(d->bd_fbuf, M_DEVBUF);
+net/bpf.c:1187:		anp_sys_free(d->bd_sbuf, M_DEVBUF);
+net/bpf.c:1189:			anp_sys_free(d->bd_hbuf, M_DEVBUF);
+net/bpf.c:1191:			anp_sys_free(d->bd_fbuf, M_DEVBUF);
+net/bpf.c:1194:		anp_sys_free((caddr_t)d->bd_filter, M_DEVBUF);
+net/if.c:117:			anp_sys_free((caddr_t)ifnet_addrs, M_IFADDR);
+net/if_ethersubr.c:667:	anp_sys_free(enm, M_IFMADDR);
+net/raw_cb.c:108:	anp_sys_free((caddr_t)(rp), M_PCB);
+net/route.c:164:		anp_sys_free(ifa, M_IFADDR);
+net/rtsock.c:106:			anp_sys_free((caddr_t)rp, M_PCB);
+net/rtsock.c:528:					anp_sys_free(rw->w_tmem, M_RTABLE);
+net/rtsock.c:804:		anp_sys_free(w.w_tmem, M_RTABLE);
+netinet/in.c:555:			anp_sys_free(inm, M_IPMADDR);
+netinet/in.c:571:			anp_sys_free(inm, M_IPMADDR);
+netinet/in.c:618:		anp_sys_free(inm, M_IPMADDR);
+netinet/ip_mroute.c:230:				anp_sys_free(viftable[vifi].v_lcl_grps, M_MRTABLE);
+netinet/ip_mroute.c:245:			anp_sys_free(mrttable[i], M_MRTABLE);
+netinet/ip_mroute.c:338:			anp_sys_free(vifp->v_lcl_grps, M_MRTABLE);
+netinet/ip_mroute.c:399:			anp_sys_free(vifp->v_lcl_grps, M_MRTABLE);
+netinet/ip_mroute.c:575:	anp_sys_free(rt, M_MRTABLE);
+netinet/ip_output.c:964:		anp_sys_free(*imop, M_IPMOPTS);
+netinet/ip_output.c:1032:		anp_sys_free(imo, M_IPMOPTS);
+netinet/tcp_subr.c:357:	anp_sys_free(tp, M_PCB);
+Definition:
+(no matches found)
+
+Symbol: [anp_sys_log]		referenced in file: kern/uipc_mbuf.c
+References:
+kern/uipc_mbuf.c:96:			anp_sys_log(LOG_ERR, "mb_map full\n");
+netinet/if_ether.c:168:			anp_sys_log(LOG_DEBUG, "arp_rtrequest: bad gateway value");
+netinet/if_ether.c:182:			anp_sys_log(LOG_DEBUG, "arp_rtrequest: malloc failed\n");
+netinet/if_ether.c:313:		anp_sys_log(LOG_DEBUG, "arpresolve: can't allocate llinfo");
+netinet/if_ether.c:434:		anp_sys_log(LOG_ERR,
+netinet/if_ether.c:440:		anp_sys_log(LOG_ERR,
+netinet/if_ether.c:450:			anp_sys_log(LOG_INFO, "arp info overwritten for %x by %s\n",
+netinet/if_ether.c:542:			anp_sys_log(LOG_DEBUG, "arptnew failed on %x\n", ntohl(addr));
+Definition:
+(no matches found)
+
+Symbol: [anp_sys_malloc]		referenced in file: kern/uipc_mbuf.c
+References:
+kern/sys_generic.c:409:		memp = (caddr_t)anp_sys_malloc((u_long)size, M_IOCTLOPS, M_WAITOK);
+kern/uipc_mbuf.c:92:	p = (caddr_t)anp_sys_malloc(ctob(npg));
+net/bpf.c:820:	fcode = (struct bpf_insn *)anp_sys_malloc(size, M_DEVBUF, M_WAITOK);
+net/bpf.c:1159:	d->bd_fbuf = (caddr_t)anp_sys_malloc(d->bd_bufsize, M_DEVBUF, M_WAITOK);
+net/bpf.c:1163:	d->bd_sbuf = (caddr_t)anp_sys_malloc(d->bd_bufsize, M_DEVBUF, M_WAITOK);
+net/bpf.c:1218:	bp = (struct bpf_if *)anp_sys_malloc(sizeof(*bp), M_DEVBUF, M_DONTWAIT);
+net/if.c:114:					anp_sys_malloc(n, M_IFADDR, M_WAITOK);
+net/if.c:136:	if (ifa = (struct ifaddr *)anp_sys_malloc(ifasize, M_IFADDR, M_WAITOK)) {
+net/if_ethersubr.c:578:	enm = (struct ether_multi *)anp_sys_malloc(sizeof(*enm), M_IFMADDR, M_NOWAIT);
+net/rtsock.c:530:						anp_sys_malloc(len, M_RTABLE, M_NOWAIT))
+netinet/in.c:206:				anp_sys_malloc(sizeof *oia, M_IFADDR, M_WAITOK);
+netinet/in.c:544:		inm = (struct in_multi *)anp_sys_malloc(sizeof(*inm),
+netinet/ip_input.c:128:	ip_ifmatrix = (u_long *) anp_sys_malloc(i, M_RTABLE, M_WAITOK);
+netinet/ip_mroute.c:386:		ip = (struct in_addr *)anp_sys_malloc(num * sizeof(*ip),
+netinet/ip_mroute.c:526:	rt = (struct mrt *)anp_sys_malloc(sizeof(*rt), M_MRTABLE, M_NOWAIT);
+netinet/ip_output.c:756:		imo = (struct ip_moptions*)anp_sys_malloc(sizeof(*imo), M_IPMOPTS,
+netinet/tcp_subr.c:212:	tp = anp_sys_malloc(sizeof(*tp), M_PCB, M_NOWAIT);
+Definition:
+(no matches found)
+
+Symbol: [anp_sys_time]		referenced in file: kern/sys_generic.c
+References:
+kern/sys_generic.c:543:		timevaladd(&atv, (struct timeval *)&anp_sys_time);
+kern/sys_generic.c:561:	if (uap->tv && (anp_sys_time.tv_sec > atv.tv_sec ||
+kern/sys_generic.c:562:	    anp_sys_time.tv_sec == atv.tv_sec && anp_sys_time.tv_usec >= atv.tv_usec)) {
+kern/sys_generic.c:562:	    anp_sys_time.tv_sec == atv.tv_sec && anp_sys_time.tv_usec >= atv.tv_usec)) {
+net/bpf.c:1141:	hp->bh_tstamp = anp_sys_time;
+net/if_ethersubr.c:113:	ifp->if_lastchange = anp_sys_time;
+net/if_ethersubr.c:133:			    anp_sys_time.tv_sec < rt->rt_rmx.rmx_expire)
+net/if_ethersubr.c:319:	ifp->if_lastchange = anp_sys_time;
+net/if_loop.c:115:	ifp->if_lastchange = anp_sys_time;
+net/if_sl.c:179:extern struct anp_sys_timeval anp_sys_time;
+net/if_sl.c:376:	sc->sc_if.if_lastchange = anp_sys_time;
+net/if_sl.c:480:		sc->sc_if.if_lastchange = anp_sys_time;
+net/if_sl.c:650:			    anp_sys_time.tv_sec >= sc->sc_startanp_sys_time + ABT_WINDOW)
+net/if_sl.c:656:			if (anp_sys_time.tv_sec >= sc->sc_lastanp_sys_time + ABT_IDLE) {
+net/if_sl.c:658:					sc->sc_startanp_sys_time = anp_sys_time.tv_sec;
+net/if_sl.c:666:		sc->sc_lastanp_sys_time = anp_sys_time.tv_sec;
+net/if_sl.c:756:		sc->sc_if.if_lastchange = anp_sys_time;
+netinet/if_ether.c:87:extern	struct timeval anp_sys_time;
+netinet/if_ether.c:110:		if (rt->rt_expire && rt->rt_expire <= anp_sys_time.tv_sec)
+netinet/if_ether.c:155:			rt->rt_expire = anp_sys_time.tv_sec;
+netinet/if_ether.c:322:	if ((rt->rt_expire == 0 || rt->rt_expire > anp_sys_time.tv_sec) &&
+netinet/if_ether.c:337:		if (la->la_asked == 0 || rt->rt_expire != anp_sys_time.tv_sec) {
+netinet/if_ether.c:338:			rt->rt_expire = anp_sys_time.tv_sec;
+netinet/if_ether.c:455:			rt->rt_expire = anp_sys_time.tv_sec + arpt_keep;
+netinet/ip_input.c:124:	ip_id = anp_sys_time.tv_sec & 0xffff;
+Definition:
+(no matches found)
+
+Symbol: [copyin]		referenced in file: kern/uipc_syscalls.c
+References:
+kern/kern_subr.c:79:				error = copyin(iov->iov_base, cp, cnt);
+kern/sys_generic.c:163:	if (error = copyin((caddr_t)uap->iovp, (caddr_t)iov, iovlen))
+kern/sys_generic.c:312:	if (error = copyin((caddr_t)uap->iovp, (caddr_t)iov, iovlen))
+kern/sys_generic.c:415:			error = copyin(uap->data, data, (u_int)size);
+kern/sys_generic.c:526:	    (error = copyin((caddr_t)uap->name, (caddr_t)&ibits[x], ni))) \
+kern/sys_generic.c:534:		error = copyin((caddr_t)uap->tv, (caddr_t)&atv,
+kern/uipc_syscalls.c:182:	if (uap->name && (error = copyin((caddr_t)uap->anamelen,
+kern/uipc_syscalls.c:426:	if (error = copyin(uap->msg, (caddr_t)&msg, sizeof (struct omsghdr)))
+kern/uipc_syscalls.c:436:	if (error = copyin((caddr_t)msg.msg_iov, (caddr_t)iov,
+kern/uipc_syscalls.c:463:	if (error = copyin(uap->msg, (caddr_t)&msg, sizeof (msg)))
+kern/uipc_syscalls.c:474:	    (error = copyin((caddr_t)msg.msg_iov, (caddr_t)iov,
+kern/uipc_syscalls.c:620:		if (error = copyin((caddr_t)uap->fromlenaddr,
+kern/uipc_syscalls.c:680:	if (error = copyin((caddr_t)uap->msg, (caddr_t)&msg,
+kern/uipc_syscalls.c:692:	if (error = copyin((caddr_t)msg.msg_iov, (caddr_t)iov,
+kern/uipc_syscalls.c:722:	if (error = copyin((caddr_t)uap->msg, (caddr_t)&msg, sizeof (msg)))
+kern/uipc_syscalls.c:739:	if (error = copyin((caddr_t)uiov, (caddr_t)iov,
+kern/uipc_syscalls.c:925:		if (error = copyin(uap->val, mtod(m, caddr_t),
+kern/uipc_syscalls.c:956:		if (error = copyin((caddr_t)uap->avalsize, (caddr_t)&valsize,
+kern/uipc_syscalls.c:1076:	if (error = copyin((caddr_t)uap->alen, (caddr_t)&len, sizeof (len)))
+kern/uipc_syscalls.c:1153:	if (error = copyin((caddr_t)uap->alen, (caddr_t)&len, sizeof (len)))
+kern/uipc_syscalls.c:1196:	error = copyin(buf, mtod(m, caddr_t), (u_int)buflen);
+net/bpf.c:821:	if (copyin((caddr_t)fp->bf_insns, (caddr_t)fcode, size) == 0 &&
+Definition:
+(no matches found)
+
+Symbol: [copyout]		referenced in file: kern/uipc_syscalls.c
+References:
+kern/kern_subr.c:77:				error = copyout(cp, iov->iov_base, cnt);
+kern/sys_generic.c:488:			error = copyout(data, uap->data, (u_int)size);
+kern/sys_generic.c:584:	    (error2 = copyout((caddr_t)&obits[x], (caddr_t)uap->name, ni))) \
+kern/uipc_syscalls.c:238:		if ((error = copyout(mtod(nam, caddr_t), (caddr_t)uap->name,
+kern/uipc_syscalls.c:240:			error = copyout((caddr_t)&namelen,
+kern/uipc_syscalls.c:339:	error = copyout((caddr_t)sv, (caddr_t)uap->rsv, 2 * sizeof (int));
+kern/uipc_syscalls.c:699:		error = copyout((caddr_t)&msg.msg_controllen,
+kern/uipc_syscalls.c:744:		error = copyout((caddr_t)&msg, (caddr_t)uap->msg, sizeof(msg));
+kern/uipc_syscalls.c:825:			if (error = copyout(mtod(from, caddr_t),
+kern/uipc_syscalls.c:831:		    (error = copyout((caddr_t)&len, namelenp, sizeof (int)))) {
+kern/uipc_syscalls.c:869:			error = copyout((caddr_t)mtod(control, caddr_t),
+kern/uipc_syscalls.c:965:		error = copyout(mtod(m, caddr_t), uap->val, (u_int)valsize);
+kern/uipc_syscalls.c:967:			error = copyout((caddr_t)&valsize,
+kern/uipc_syscalls.c:1091:	error = copyout(mtod(m, caddr_t), (caddr_t)uap->asa, (u_int)len);
+kern/uipc_syscalls.c:1093:		error = copyout((caddr_t)&len, (caddr_t)uap->alen,
+kern/uipc_syscalls.c:1167:	if (error = copyout(mtod(m, caddr_t), (caddr_t)uap->asa, (u_int)len))
+kern/uipc_syscalls.c:1169:	error = copyout((caddr_t)&len, (caddr_t)uap->alen, sizeof (len));
+net/if.c:610:			error = copyout((caddr_t)&ifr, (caddr_t)ifrp,
+net/if.c:624:				error = copyout((caddr_t)&ifr, (caddr_t)ifrp,
+net/if.c:631:				error = copyout((caddr_t)&ifr, (caddr_t)ifrp,
+net/if.c:638:				error = copyout((caddr_t)&ifr, (caddr_t)ifrp,
+net/if.c:641:				    error = copyout((caddr_t)sa,
+net/rtsock.c:698:		if (error = copyout((caddr_t)rtm, w->w_where, size))
+net/rtsock.c:732:			if (error = copyout((caddr_t)ifm, w->w_where, len))
+net/rtsock.c:751:				if (error = copyout(w->w_tmem, w->w_where, len))
+Definition:
+(no matches found)
+
+Symbol: [curproc]		referenced in file: kern/uipc_socket.c
+References:
+kern/kern_subr.c:59:	if (uio->uio_segflg == UIO_USERSPACE && uio->uio_procp != curproc)
+kern/uipc_socket.c:63:	struct proc *p = curproc;		/* XXX */
+kern/uipc_socket.c:313:	struct proc *p = curproc;		/* XXX */
+net/if_sl.c:244:	struct proc *p = curproc;		/* XXX */
+net/rtsock.c:161:	rtm->rtm_pid = curproc->p_pid;
+netinet/in_pcb.c:86:	struct proc *p = curproc;		/* XXX */
+Definition:
+(no matches found)
+
+Symbol: [falloc]		referenced in file: kern/uipc_syscalls.c
+References:
+kern/uipc_syscalls.c:81:	if (error = falloc(p, &fp, &fd))
+kern/uipc_syscalls.c:214:	if (error = falloc(p, &fp, retval)) {
+kern/uipc_syscalls.c:316:	if (error = falloc(p, &fp1, &fd))
+kern/uipc_syscalls.c:323:	if (error = falloc(p, &fp2, &fd))
+kern/uipc_syscalls.c:996:	if (error = falloc(p, &rf, &fd))
+kern/uipc_syscalls.c:1003:	if (error = falloc(p, &wf, &fd))
+Definition:
+falloc            569 kern/kern_descrip.c falloc(p, resultfp, resultfd)
+
+Symbol: [ffree]		referenced in file: kern/uipc_syscalls.c
+References:
+kern/uipc_syscalls.c:88:		ffree(fp);
+kern/uipc_syscalls.c:344:	ffree(fp2);
+kern/uipc_syscalls.c:347:	ffree(fp1);
+kern/uipc_syscalls.c:1014:	ffree(wf);
+kern/uipc_syscalls.c:1017:	ffree(rf);
+Definition:
+ffree             615 kern/kern_descrip.c ffree(fp)
+
+Symbol: [free]		referenced in file: kern/uipc_mbuf.c
+References:
+Definition:
+free               46 net/bpf_compat.h #define free(cp, type) m_free(*(struct mbuf **)(cp - 8))
+
+Symbol: [hz]		referenced in file: kern/uipc_domain.c
+References:
+kern/uipc_domain.c:205:	timeout(pfslowtimo, (void *)0, hz/2);
+kern/uipc_domain.c:219:	timeout(pffasttimo, (void *)0, hz/5);
+kern/uipc_socket.c:896:			if (tv->tv_sec > SHRT_MAX / hz - hz) {
+kern/uipc_socket.c:896:			if (tv->tv_sec > SHRT_MAX / hz - hz) {
+kern/uipc_socket.c:900:			val = tv->tv_sec * hz + tv->tv_usec / tick;
+kern/uipc_socket.c:999:			mtod(m, struct timeval *)->tv_sec = val / hz;
+kern/uipc_socket.c:1001:			    (val % hz) / tick;
+net/if.c:411:	timeout(if_slowtimo, (void *)0, hz / IFNET_SLOWHZ);
+netinet/if_ether.c:106:	timeout(arptimer, (caddr_t)0, arpt_prune * hz);
+netinet/if_ether.c:131:		timeout(arptimer, (caddr_t)0, hz);
+Definition:
+(no matches found)
+
+Symbol: [hzto]		referenced in file: kern/sys_generic.c
+References:
+kern/sys_generic.c:544:		timo = hzto(&atv);
+Definition:
+hzto              331 kern/kern_clock.c hzto(tv)
+
+Symbol: [itimerfix]		referenced in file: kern/sys_generic.c
+References:
+kern/sys_generic.c:538:		if (itimerfix(&atv)) {
+Definition:
+itimerfix         325 kern/kern_time.c itimerfix(tv)
+
+Symbol: [malloc]		referenced in file: kern/uipc_mbuf.c
+References:
+kern/kern_subr.c:205:	hashtbl = malloc((u_long)hashsize * sizeof(*hashtbl), type, M_WAITOK);
+Definition:
+malloc             45 net/bpf_compat.h #define malloc(size, type, canwait) bpf_alloc(size, canwait)
+
+Symbol: [memcpy]		referenced in file: net/if.c
+References:
+Definition:
+(no matches found)
+
+Symbol: [microtime]		referenced in file: netinet/ip_icmp.c
+References:
+net/bpf.c:1137:	microtime(&hp->bh_tstamp);
+netinet/ip_icmp.c:565:	microtime(&atv);
+Definition:
+(no matches found)
+
+Symbol: [ovbcopy]		referenced in file: net/slcompress.c
+References:
+net/slcompress.c:66:#define ovbcopy bcopy
+net/slcompress.c:512:			(void) ovbcopy(cp, (caddr_t)((int)cp &~ 3), len);
+netinet/ip_mroute.c:682:		ovbcopy((caddr_t)(ipoptions + TUNNEL_LEN), (caddr_t)ipoptions,
+netinet/ip_output.c:427:		ovbcopy((caddr_t)ip, mtod(m, caddr_t), sizeof(struct ip));
+netinet/ip_output.c:671:	ovbcopy(mtod(m, caddr_t), (caddr_t)cp, (unsigned)cnt);
+netinet/ip_output.c:715:			ovbcopy((caddr_t)(&cp[IPOPT_OFFSET+1] +
+Definition:
+(no matches found)
+
+Symbol: [panic]		referenced in file: kern/uipc_mbuf.c
+References:
+kern/kern_subr.c:58:		panic("uiomove: mode");
+kern/kern_subr.c:60:		panic("uiomove proc");
+kern/kern_subr.c:112:		panic("ureadc");
+kern/kern_subr.c:156:		panic("uwritec");
+kern/kern_subr.c:201:		panic("hashinit: bad cnt");
+kern/uipc_mbuf.c:69:	panic("mbinit");
+kern/uipc_mbuf.c:271:		panic("m_copym");
+kern/uipc_mbuf.c:276:			panic("m_copym");
+kern/uipc_mbuf.c:287:				panic("m_copym");
+kern/uipc_mbuf.c:339:		panic("m_copydata");
+kern/uipc_mbuf.c:342:			panic("m_copydata");
+kern/uipc_mbuf.c:350:			panic("m_copydata");
+kern/uipc_socket.c:138:			panic("sofree dq");
+kern/uipc_socket.c:191:		panic("soclose: NOFDREF");
+kern/uipc_socket.c:218:		panic("soaccept: !NOFDREF");
+kern/uipc_socket.c:550:			panic("receive 1");
+kern/uipc_socket.c:596:			panic("receive 1a");
+kern/uipc_socket.c:659:			panic("receive 3");
+kern/uipc_socket2.c:469:			panic("sbcheck nextpkt");
+kern/uipc_socket2.c:474:		panic("sbcheck");
+kern/uipc_socket2.c:570:panic("sbappendaddr");
+kern/uipc_socket2.c:611:		panic("sbappendcontrol");
+kern/uipc_socket2.c:692:		panic("sbflush");
+kern/uipc_socket2.c:696:		panic("sbflush 2");
+kern/uipc_socket2.c:713:				panic("sbdrop");
+kern/uipc_syscalls.c:220:		panic("accept");
+net/bpf.c:279:			panic("bpf: ifpromisc failed");
+net/bpf.c:286:			panic("bpf_detachd: descriptor not in list");
+net/bpf.c:1041:			panic("bpf_mcopy");
+net/bpf.c:1221:		panic("bpfattach");
+net/if_ethersubr.c:431:				panic("ETHER cons addr failure");
+net/if_loop.c:114:		panic("looutput no HDR");
+net/radix.c:749:		panic("rn_init");
+net/radix.c:756:		panic("rn_init 2");
+net/raw_usrreq.c:300:		panic("raw_usrreq");
+net/route.c:140:		panic("rtfree");
+net/route.c:144:			panic ("rtfree 2");
+net/route.c:162:		panic("ifafree");
+net/route.c:349:			panic ("rtrequest delete");
+net/rtsock.c:144:		panic("route_output");
+net/rtsock.c:456:		panic("rt_msg1");
+netinet/if_ether.c:368:			panic("arpintr");
+netinet/if_ether.c:511:		panic("arptfree");
+netinet/in.c:203:			panic("in_control");
+netinet/ip_icmp.c:118:		panic("icmp_error");
+netinet/ip_icmp.c:148:		panic("icmp len");
+netinet/ip_input.c:115:		panic("ip_init");
+netinet/ip_input.c:161:		panic("ipintr no HDR");
+netinet/ip_output.c:87:		panic("ip_output no HDR");
+netinet/raw_ip.c:249:			panic("rip_attach");
+netinet/raw_ip.c:272:			panic("rip_detach");
+netinet/raw_ip.c:384:		panic("rip_usrreq");
+netinet/tcp_input.c:1421:	panic("tcp_pulloutofband");
+netinet/tcp_output.c:329:		panic("tcphdr too big");
+netinet/tcp_output.c:405:		panic("tcp_output");
+netinet/tcp_output.c:590:		panic("tcp_output REXMT");
+netinet/tcp_subr.c:81:		panic("tcp_init");
+netinet/tcp_usrreq.c:328:		panic("tcp_usrreq");
+netinet/udp_usrreq.c:593:		panic("udp_usrreq");
+Definition:
+panic              99 kern/subr_prf.c  panic(const char *fmt, ...)
+
+Symbol: [pfind]		referenced in file: kern/sys_generic.c
+References:
+kern/sys_generic.c:460:			struct proc *p1 = pfind(tmp);
+kern/sys_generic.c:652:	if (sip->si_pid && (p = pfind(sip->si_pid)) &&
+kern/sys_generic.c:676:	p = pfind(sip->si_pid);
+kern/uipc_socket.c:1023:	else if (so->so_pgid > 0 && (p = pfind(so->so_pgid)) != 0)
+kern/uipc_socket2.c:314:		else if (so->so_pgid > 0 && (p = pfind(so->so_pgid)) != 0)
+Definition:
+pfind             133 kern/kern_proc.c pfind(pid)
+
+Symbol: [setrunnable]		referenced in file: kern/sys_generic.c
+References:
+kern/sys_generic.c:682:				setrunnable(p);
+Definition:
+setrunnable       617 kern/kern_synch.c setrunnable(p)
+
+Symbol: [setsoftnet]		referenced in file: net/if_ethersubr.c
+References:
+Definition:
+setsoftnet         45 net/netisr.h     #define	setsoftnet()	mtpr(SIRR, 12)
+
+Symbol: [splclock]		referenced in file: kern/sys_generic.c
+References:
+kern/sys_generic.c:542:		s = splclock();
+Definition:
+(no matches found)
+
+Symbol: [splhigh]		referenced in file: kern/sys_generic.c
+References:
+kern/sys_generic.c:559:	s = splhigh();
+kern/sys_generic.c:679:		s = splhigh();
+Definition:
+(no matches found)
+
+Symbol: [splimp]		referenced in file: kern/uipc_mbuf.c
+References:
+kern/uipc_mbuf.c:63:	s = splimp();
+kern/uipc_mbuf.c:148:	int s = splimp();
+kern/uipc_socket.c:803:	s = splimp();
+net/bpf.c:349:	s = splimp();
+net/bpf.c:427:	s = splimp();
+net/bpf.c:483:	s = splimp();
+net/bpf.c:613:			s = splimp();
+net/bpf.c:675:		s = splimp();
+net/bpf.c:691:		s = splimp();
+net/bpf.c:807:		s = splimp();
+net/bpf.c:823:		s = splimp();
+net/bpf.c:892:		s = splimp();
+net/bpf.c:967:	s = splimp();
+net/if.c:402:	int s = splimp();
+net/if.c:492:			int s = splimp();
+net/if.c:497:			int s = splimp();
+net/if_ethersubr.c:274:	s = splimp();
+net/if_ethersubr.c:452:	s = splimp();
+net/if_ethersubr.c:522:	int s = splimp();
+net/if_ethersubr.c:611:	int s = splimp();
+net/if_loop.c:170:	s = splimp();
+net/if_sl.c:280:	s = splimp();		/* actually, max(spltty, splnet) */
+net/if_sl.c:367:	s = splimp();
+net/if_sl.c:424:		s = splimp();
+net/if_sl.c:757:		s = splimp();
+net/if_sl.c:797:	register int s = splimp(), error = 0;
+netinet/if_ether.c:364:		s = splimp();
+netinet/in.c:406:	int s = splimp(), flags = RTF_UP, error, ether_output();
+netinet/ip_input.c:154:	s = splimp();
+Definition:
+(no matches found)
+
+Symbol: [splnet]		referenced in file: kern/sys_socket.c
+References:
+kern/sys_socket.c:139:	register int s = splnet();
+kern/uipc_socket.c:98:	int s = splnet();
+kern/uipc_socket.c:112:	int s = splnet(), error;
+kern/uipc_socket.c:154:	int s = splnet();		/* conservative */
+kern/uipc_socket.c:214:	int s = splnet();
+kern/uipc_socket.c:235:	s = splnet();
+kern/uipc_socket.c:257:	int s = splnet();
+kern/uipc_socket.c:269:	int s = splnet();
+kern/uipc_socket.c:345:		s = splnet();
+kern/uipc_socket.c:438:		    s = splnet();				/* XXX */
+kern/uipc_socket.c:529:	s = splnet();
+kern/uipc_socket.c:678:			s = splnet();
+kern/uipc_syscalls.c:187:	s = splnet();
+kern/uipc_syscalls.c:278:	s = splnet();
+net/bpf.c:541:	s = splnet();
+net/route.c:102:	int  s = splnet(), err = 0, msgtype = RTM_MISS;
+net/route.c:332:	int s = splnet(); int error = 0;
+net/rtsock.c:100:	s = splnet();
+net/rtsock.c:787:	s = splnet();
+netinet/if_ether.c:103:	int s = splnet();
+netinet/igmp.c:208:	register int s = splnet();
+netinet/igmp.c:244:	s = splnet();
+netinet/in.c:527:	int s = splnet();
+netinet/in.c:593:	int s = splnet();
+netinet/ip_input.c:597:	int s = splnet();
+netinet/ip_mroute.c:220:	s = splnet();
+netinet/ip_mroute.c:280:	s = splnet();
+netinet/ip_mroute.c:334:	s = splnet();
+netinet/ip_mroute.c:376:	s = splnet();
+netinet/ip_mroute.c:432:	s = splnet();
+netinet/ip_mroute.c:474:			s = splnet();
+netinet/ip_mroute.c:480:	s = splnet();
+netinet/ip_mroute.c:516:		s = splnet();
+netinet/ip_mroute.c:524:	s = splnet();
+netinet/ip_mroute.c:566:	s = splnet();
+netinet/ip_mroute.c:604:			s = splnet();
+netinet/tcp_timer.c:73:	int s = splnet();
+netinet/tcp_timer.c:98:	int s = splnet();
+netinet/tcp_usrreq.c:95:	s = splnet();
+netinet/tcp_usrreq.c:349:	s = splnet();
+netinet/udp_usrreq.c:399:		s = splnet();
+netinet/udp_usrreq.c:497:		s = splnet();
+netinet/udp_usrreq.c:513:		s = splnet();
+netinet/udp_usrreq.c:527:		s = splnet();
+netinet/udp_usrreq.c:547:		s = splnet();
+netinet/udp_usrreq.c:610:	int s = splnet();
+Definition:
+(no matches found)
+
+Symbol: [splx]		referenced in file: kern/sys_socket.c
+References:
+kern/sys_generic.c:550:		splx(s);
+kern/sys_generic.c:563:		splx(s);
+kern/sys_generic.c:567:		splx(s);
+kern/sys_generic.c:572:	splx(s);
+kern/sys_generic.c:687:		splx(s);
+kern/sys_socket.c:145:			splx(s);
+kern/sys_socket.c:154:			splx(s);
+kern/sys_socket.c:163:			splx(s);
+kern/sys_socket.c:170:	splx(s);
+kern/uipc_mbuf.c:66:	splx(s);
+kern/uipc_mbuf.c:154:	splx(s);
+kern/uipc_socket.c:104:	splx(s);
+kern/uipc_socket.c:118:		splx(s);
+kern/uipc_socket.c:126:	splx(s);
+kern/uipc_socket.c:194:	splx(s);
+kern/uipc_socket.c:222:	splx(s);
+kern/uipc_socket.c:249:	splx(s);
+kern/uipc_socket.c:262:	splx(s);
+kern/uipc_socket.c:283:	splx(s);
+kern/uipc_socket.c:339:#define	snderr(errno)	{ error = errno; splx(s); goto release; }
+kern/uipc_socket.c:370:			splx(s);
+kern/uipc_socket.c:375:		splx(s);
+kern/uipc_socket.c:442:		    splx(s);
+kern/uipc_socket.c:584:		splx(s);
+kern/uipc_socket.c:676:			splx(s);
+kern/uipc_socket.c:742:				splx(s);
+kern/uipc_socket.c:766:		splx(s);
+kern/uipc_socket.c:774:	splx(s);
+kern/uipc_socket.c:808:	splx(s);
+kern/uipc_syscalls.c:190:		splx(s);
+kern/uipc_syscalls.c:194:		splx(s);
+kern/uipc_syscalls.c:204:			splx(s);
+kern/uipc_syscalls.c:211:		splx(s);
+kern/uipc_syscalls.c:215:		splx(s);
+kern/uipc_syscalls.c:244:	splx(s);
+kern/uipc_syscalls.c:287:	splx(s);
+net/bpf.c:352:	splx(s);
+net/bpf.c:446:			splx(s);
+net/bpf.c:464:				splx(s);
+net/bpf.c:474:	splx(s);
+net/bpf.c:487:	splx(s);
+net/bpf.c:547:	splx(s);
+net/bpf.c:617:			splx(s);
+net/bpf.c:677:		splx(s);
+net/bpf.c:697:		splx(s);
+net/bpf.c:810:		splx(s);
+net/bpf.c:826:		splx(s);
+net/bpf.c:903:		splx(s);
+net/bpf.c:972:		splx(s);
+net/bpf.c:990:	splx(s);
+net/if.c:410:	splx(s);
+net/if.c:494:			splx(s);
+net/if.c:499:			splx(s);
+net/if_ethersubr.c:281:		splx(s);
+net/if_ethersubr.c:287:	splx(s);
+net/if_ethersubr.c:458:	splx(s);
+net/if_ethersubr.c:551:		splx(s);
+net/if_ethersubr.c:559:		splx(s);
+net/if_ethersubr.c:571:		splx(s);
+net/if_ethersubr.c:580:		splx(s);
+net/if_ethersubr.c:590:	splx(s);
+net/if_ethersubr.c:640:		splx(s);
+net/if_ethersubr.c:649:		splx(s);
+net/if_ethersubr.c:656:		splx(s);
+net/if_ethersubr.c:669:	splx(s);
+net/if_loop.c:174:		splx(s);
+net/if_loop.c:181:	splx(s);
+net/if_sl.c:292:	splx(s);
+net/if_sl.c:371:		splx(s);
+net/if_sl.c:379:	splx(s);
+net/if_sl.c:430:		splx(s);
+net/if_sl.c:767:		splx(s);
+net/if_sl.c:836:	splx(s);
+net/route.c:129:	splx(s);
+net/route.c:418:	splx(s);
+net/rtsock.c:107:			splx(s);
+net/rtsock.c:121:	splx(s);
+net/rtsock.c:802:	splx(s);
+netinet/if_ether.c:113:	splx(s);
+netinet/if_ether.c:366:		splx(s);
+netinet/igmp.c:218:	splx(s);
+netinet/igmp.c:257:	splx(s);
+netinet/in.c:417:		splx(s);
+netinet/in.c:425:	splx(s);
+netinet/in.c:547:			splx(s);
+netinet/in.c:556:			splx(s);
+netinet/in.c:572:			splx(s);
+netinet/in.c:580:	splx(s);
+netinet/in.c:620:	splx(s);
+netinet/ip_input.c:156:	splx(s);
+netinet/ip_input.c:601:		splx(s);
+netinet/ip_input.c:612:	splx(s);
+netinet/ip_mroute.c:251:	splx(s);
+netinet/ip_mroute.c:288:			splx(s);
+netinet/ip_mroute.c:299:			splx(s);
+netinet/ip_mroute.c:313:	splx(s);
+netinet/ip_mroute.c:353:	splx(s);
+netinet/ip_mroute.c:389:			splx(s);
+netinet/ip_mroute.c:402:		splx(s);
+netinet/ip_mroute.c:410:	splx(s);
+netinet/ip_mroute.c:449:	splx(s);
+netinet/ip_mroute.c:477:			splx(s);
+netinet/ip_mroute.c:483:	splx(s);
+netinet/ip_mroute.c:520:		splx(s);
+netinet/ip_mroute.c:528:		splx(s);
+netinet/ip_mroute.c:545:	splx(s);
+netinet/ip_mroute.c:577:	splx(s);
+netinet/ip_mroute.c:608:			splx(s);
+netinet/tcp_timer.c:85:	splx(s);
+netinet/tcp_timer.c:107:		splx(s);
+netinet/tcp_timer.c:136:	splx(s);
+netinet/tcp_usrreq.c:103:		splx(s);
+netinet/tcp_usrreq.c:268:		(void) splx(s);
+netinet/tcp_usrreq.c:332:	splx(s);
+netinet/tcp_usrreq.c:352:		splx(s);
+netinet/tcp_usrreq.c:359:		splx(s);
+netinet/tcp_usrreq.c:411:	splx(s);
+netinet/udp_usrreq.c:402:			splx(s);
+netinet/udp_usrreq.c:455:		splx(s);
+netinet/udp_usrreq.c:499:		splx(s);
+netinet/udp_usrreq.c:515:		splx(s);
+netinet/udp_usrreq.c:529:		splx(s);
+netinet/udp_usrreq.c:550:		splx(s);
+netinet/udp_usrreq.c:615:	splx(s);
+Definition:
+(no matches found)
+
+Symbol: [subyte]		referenced in file: kern/kern_subr.c
+References:
+kern/kern_subr.c:122:		if (subyte(iov->iov_base, c) < 0)
+Definition:
+(no matches found)
+
+Symbol: [suibyte]		referenced in file: kern/kern_subr.c
+References:
+kern/kern_subr.c:131:		if (suibyte(iov->iov_base, c) < 0)
+Definition:
+(no matches found)
+
+Symbol: [suser]		referenced in file: net/if.c
+References:
+net/if.c:489:		if (error = suser(p->p_ucred, &p->p_acflag))
+net/if.c:508:		if (error = suser(p->p_ucred, &p->p_acflag))
+net/if.c:515:		if (error = suser(p->p_ucred, &p->p_acflag))
+net/if_sl.c:249:	if (error = suser(p->p_ucred, &p->p_acflag))
+netinet/in_pcb.c:132:			    (error = suser(p->p_ucred, &p->p_acflag)))
+Definition:
+suser             450 kern/kern_prot.c suser(cred, acflag)
+
+Symbol: [sysctl_int]		referenced in file: netinet/ip_icmp.c
+References:
+netinet/ip_icmp.c:586:		return (sysctl_int(oldp, oldlenp, newp, newlen, &icmpmaskrepl));
+netinet/ip_input.c:1152:		return (sysctl_int(oldp, oldlenp, newp, newlen, &ipforwarding));
+netinet/ip_input.c:1154:		return (sysctl_int(oldp, oldlenp, newp, newlen,
+netinet/ip_input.c:1157:		return (sysctl_int(oldp, oldlenp, newp, newlen, &ip_defttl));
+netinet/ip_input.c:1160:		return (sysctl_int(oldp, oldlenp, newp, newlen, &ip_mtu));
+netinet/udp_usrreq.c:635:		return (sysctl_int(oldp, oldlenp, newp, newlen, &udpcksum));
+Definition:
+sysctl_int        359 kern/kern_sysctl.c sysctl_int(oldp, oldlenp, newp, newlen, valp)
+
+Symbol: [tick]		referenced in file: kern/uipc_socket.c
+References:
+kern/uipc_socket.c:900:			val = tv->tv_sec * hz + tv->tv_usec / tick;
+kern/uipc_socket.c:1001:			    (val % hz) / tick;
+net/bpf.c:741:			d->bd_rtout = msec / (tick / 1000);
+net/bpf.c:753:			msec *= tick / 1000;
+Definition:
+(no matches found)
+
+Symbol: [timeout]		referenced in file: kern/uipc_domain.c
+References:
+kern/uipc_domain.c:96:	timeout(pffasttimo, (void *)0, 1);
+kern/uipc_domain.c:97:	timeout(pfslowtimo, (void *)0, 1);
+kern/uipc_domain.c:205:	timeout(pfslowtimo, (void *)0, hz/2);
+kern/uipc_domain.c:219:	timeout(pffasttimo, (void *)0, hz/5);
+net/bpf.c:382:		timeout(bpf_timeout, (caddr_t)d, rto);
+net/if.c:411:	timeout(if_slowtimo, (void *)0, hz / IFNET_SLOWHZ);
+netinet/if_ether.c:106:	timeout(arptimer, (caddr_t)0, arpt_prune * hz);
+netinet/if_ether.c:131:		timeout(arptimer, (caddr_t)0, hz);
+Definition:
+timeout           258 kern/kern_clock.c timeout(ftn, arg, ticks)
+
+Symbol: [timevaladd]		referenced in file: kern/sys_generic.c
+References:
+kern/sys_generic.c:543:		timevaladd(&atv, (struct timeval *)&anp_sys_time);
+Definition:
+timevaladd        386 kern/kern_time.c timevaladd(t1, t2)
+
+Symbol: [tsleep]		referenced in file: kern/uipc_socket.c
+References:
+kern/sys_generic.c:571:	error = tsleep((caddr_t)&selwait, PSOCK | PCATCH, "select", timo);
+kern/uipc_socket.c:176:				if (error = tsleep((caddr_t)&so->so_timeo,
+kern/uipc_socket2.c:267:	return (tsleep((caddr_t)&sb->sb_cc,
+kern/uipc_socket2.c:283:		if (error = tsleep((caddr_t)&sb->sb_flags, 
+kern/uipc_syscalls.c:202:		if (error = tsleep((caddr_t)&so->so_timeo, PSOCK | PCATCH,
+kern/uipc_syscalls.c:280:		if (error = tsleep((caddr_t)&so->so_timeo, PSOCK | PCATCH,
+net/bpf.c:394:#define BPF_SLEEP tsleep
+Definition:
+tsleep            281 kern/kern_synch.c tsleep(ident, priority, wmesg, timo)
+
+Symbol: [unsleep]		referenced in file: kern/sys_generic.c
+References:
+kern/sys_generic.c:684:				unsleep(p);
+Definition:
+unsleep           472 kern/kern_synch.c unsleep(p)
+
+Symbol: [wakeup]		referenced in file: kern/uipc_socket.c
+References:
+kern/sys_generic.c:674:		wakeup((caddr_t)&selwait);
+kern/uipc_socket2.c:106:		wakeup((caddr_t)&head->so_timeo);
+kern/uipc_socket2.c:108:		wakeup((caddr_t)&so->so_timeo);
+kern/uipc_socket2.c:120:	wakeup((caddr_t)&so->so_timeo);
+kern/uipc_socket2.c:131:	wakeup((caddr_t)&so->so_timeo);
+kern/uipc_socket2.c:178:		wakeup((caddr_t)&head->so_timeo);
+kern/uipc_socket2.c:307:		wakeup((caddr_t)&sb->sb_cc);
+net/bpf.c:368:	wakeup(arg);
+net/bpf.c:500:	wakeup((caddr_t)d);
+netinet/tcp_subr.c:403:	wakeup((caddr_t) &so->so_timeo);
+Definition:
+wakeup            496 kern/kern_synch.c wakeup(ident)
+

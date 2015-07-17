@@ -1,0 +1,184 @@
+
+Notes on user-space port of Net/3 TCP/IP code:
+
+Issues:
+
+	- Initialization
+
+	- Timer Management
+
+	- Interrupts and Synchronization
+
+	- anp_xxx() wrappers for sys. call xxx()
+
+	- Name clashes
+
+Overview:
+
+Essentially, the user-space port is non pre-emptive.  We do this because,
+at least under Solaris, there is no intra-process thread scheduling policy
+which gives us the guarantees we need to simulate preemptive interrupts.
+
+So, we have a number of threads, and a single mutex, kern_lock, which threads
+acquire and release as they enter or leave the kernel.
+
+We have two permanent daemon threads:
+	input_thread -- watches for input on the stream pipe which
+			simulates a serial link, and calls slinput()
+			with each byte of input, to simulate tty interrupts
+
+	clock_thread -- sleeps for TICK_TIME seconds, wakes up, and performs
+			high-priority clock interrupt processing
+
+	callout_thread -- runs at a lower thread priority than clock_thread;
+			sleeps until clock_thread signals it, indicating that
+			there is low-priority clock processing to be
+			performed (such as dealing with the callout queue).
+
+In addition, we will also simulate the user process (or processes) with
+their own thread of control.  
+
+
+Memory Management:
+------------------
+
+Trivial.  We provide wrappers around malloc()/free() for things like
+kmem_malloc().
+
+For in-kernel calls to the kernel version of malloc() and free(), we'll
+have to rename all those calls to something like kern_malloc() and
+kern_free().  We'll implement these, in turn, as wrappers which call-through
+to libc's malloc and free.
+
+File Descriptor Management:
+---------------------------
+
+We'll have to emulate the open file table in user space.  Since all the
+kernel seems to do in TCP/IP code is allocate and release file table entries
+(and possible store information there), we'll just have to provide an
+implementation of falloc()/ffree().
+
+Utility Routines:
+-----------------
+
+log() and panic() should both just be translated into the appropriate
+calls to printf().
+
+Timer Management:
+-----------------
+(see discussion of clock_thread and callout_thread, above)
+
+Interrupt Processing:
+---------------------
+
+Because we've decided to do a non-preemptive implementation, all calls to
+splx() and splXXX() should be turned into NOPs.
+
+Synchronization:
+----------------
+
+We use a mechanism analagous to the mechanism used for managing the sleep
+queue inside the kernel.  We'll have a sleep queue which has a condition
+variable for every entry.  When we sleep on an address, we hash it to the
+appropriate sleep queue, and wait for the condition variable to be signalled.
+A wakeup() call results in alerting all threads sleeping on the condition
+variable associated with the given sleep queue.
+
+Process Credentials:
+--------------------
+
+Trivial -- for now, we'll just have suser() always return true.
+
+Dispatch Routines:
+---------------------
+
+The system call implementations in kern/uipc_syscalls.c have their own
+calling sequence which is different from the system call calling sequence.
+We'll have to provide our own wrappers which have the same API as the real
+system calls, and which place the args in an appropriate form to call through
+to the functions in kern/uipc_syscalls.c.  Functions in uipc_syscalls.c
+are now named anp_sys_xxx(), where xxx() is the name of the corresponding
+system call.
+
+The dispatch routines will be named anp_xxx(), where xxx() is the name of
+the real system call.  A header file, to be included in the test applications,
+will #define xxx to anp_xxx, in order to effect a call to the appropriate
+user-space ANP routines.
+
+
+Header Files:
+-------------
+
+Because we are simulating the BSD kernel on a Unix host, we are going to
+face conflicts between the BSD headers (which are used to compile the generic
+TCP/IP code), and the platform-specific code for the simulator, which must
+be compiled with the Unix headers on the simulator host.
+
+We'll split modules into two types:  "host" modules, which make system calls
+to the simulator host, and are therefore compiled with host header files,
+and "simulator" modules, which are compiled with the original BSD header
+files.  All of the TCP/IP code, as well modules such as kern_globals.o and
+any test driver modules, will be "simulator" modules.
+
+
+Name Clashes and Renamings:
+---------------------------
+
+(try and record all name changes here...)
+
+A number of names used as global variables or functions in the kernel have
+names which clash with standard C libraries.  We'll have to change all of
+these names throughout the Net/3 kernel code.
+
+	original name			new name
+	--------------			-----------------
+	free()				anp_sys_free()
+	log()				anp_sys_log()
+	malloc()			anp_sys_malloc()
+	htons()				anp_sys_htons()
+	htonl()				anp_sys_htonl()
+	ntohs()				anp_sys_ntohs()
+	ntohl()				anp_sys_ntohl()
+	time				anp_sys_time
+
+Emulating the Process Structure
+-------------------------------
+
+The following members of the proc structure are used in the TCP/IP code:
+
+	p_fd
+	p_tracep
+	p_pgrp->pg_id
+	p_flag
+	p_wchan
+	p_stat
+	p_ucred->cr_uid
+	p_stats	( can probably kill uses)
+	p_acflag
+
+(We really aught to just remove all references to the process structure from
+ the TCP/IP code, and live without it.
+ The only things we might need are (a) some kind of credentials mechanism,
+ and (b) possibly some mechanism for keeping track of which threads own
+ which sockets...)
+
+TODO:
+-----
+
+	- system call wrappers and call-throughs to kern/uipc_syscalls.c
+	- generic system call wrappers (write(),read())
+	- stream pipe simulating tty device
+	- provide replacement implementations for select(), selrecord(),
+	  selwakeup()
+	- kernel initialization
+	
+***!!:	should be able to avoid emulating kernel open file table and proc
+	structures; If we trace the activity of, for instance, the read()
+	system call, it just results in a call to kern/sys_socket.s:soo_read(),
+	which in turn just calls kern/uipc_socket.c:so_receive().
+
+	We should be able to eliminate the refs to the proc and file
+	structures and just call so_receive() directly from our wrapper
+	routines.
+
+

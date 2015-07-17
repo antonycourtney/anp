@@ -1,0 +1,20 @@
+#!/bin/bash
+# AC: A bash script to nicely format a list of (symbol, file) pairs
+# from stdin to show their cross-references in the file /tmp/kernel_tags
+
+TAGFILE=/tmp/kernel_tags
+SYMFILE=/tmp/syms
+
+while read symlin
+do
+	sym=`echo $symlin |cut -d' ' -f1`
+	callfile=`echo $symlin |cut -d' ' -f2`
+	srcfile=`echo $callfile |sed -e 's/\.o/\.c/g' `
+	echo "Symbol: ["$sym"]		referenced in file: "$srcfile
+	echo "References:"
+#	grep -n '[^a-zA-Z_]$sym *' */*.c
+	cgrep $sym */*.c
+	echo "Definition:"
+	if ! grep -h "^"$sym" " $TAGFILE ; then echo "(no matches found)"; fi
+	echo
+done < $SYMFILE

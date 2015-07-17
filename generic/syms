@@ -1,0 +1,300 @@
+Symbol: [.rem]		referenced in file: kern/uipc_socket.c
+References:
+137:		if (!soqremque(so, 0) && !soqremque(so, 1))
+147: * Close a socket on last file table reference removal.
+Definition:
+(no matches found)
+
+Symbol: [.udiv]		referenced in file: kern/uipc_socket2.c
+References:
+Definition:
+(no matches found)
+
+Symbol: [.umul]		referenced in file: kern/uipc_socket.c
+References:
+Definition:
+(no matches found)
+
+Symbol: [.urem]		referenced in file: net/if.c
+References:
+Definition:
+(no matches found)
+
+Symbol: [_insque]		referenced in file: net/raw_cb.c
+References:
+Definition:
+(no matches found)
+
+Symbol: [_remque]		referenced in file: net/raw_cb.c
+References:
+Definition:
+(no matches found)
+
+Symbol: [copyin]		referenced in file: kern/uipc_syscalls.c
+References:
+182:	if (uap->name && (error = copyin((caddr_t)uap->anamelen,
+426:	if (error = copyin(uap->msg, (caddr_t)&msg, sizeof (struct omsghdr)))
+436:	if (error = copyin((caddr_t)msg.msg_iov, (caddr_t)iov,
+463:	if (error = copyin(uap->msg, (caddr_t)&msg, sizeof (msg)))
+474:	    (error = copyin((caddr_t)msg.msg_iov, (caddr_t)iov,
+620:		if (error = copyin((caddr_t)uap->fromlenaddr,
+680:	if (error = copyin((caddr_t)uap->msg, (caddr_t)&msg,
+692:	if (error = copyin((caddr_t)msg.msg_iov, (caddr_t)iov,
+722:	if (error = copyin((caddr_t)uap->msg, (caddr_t)&msg, sizeof (msg)))
+739:	if (error = copyin((caddr_t)uiov, (caddr_t)iov,
+925:		if (error = copyin(uap->val, mtod(m, caddr_t),
+956:		if (error = copyin((caddr_t)uap->avalsize, (caddr_t)&valsize,
+1072:	if (error = copyin((caddr_t)uap->alen, (caddr_t)&len, sizeof (len)))
+1149:	if (error = copyin((caddr_t)uap->alen, (caddr_t)&len, sizeof (len)))
+1192:	error = copyin(buf, mtod(m, caddr_t), (u_int)buflen);
+Definition:
+(no matches found)
+
+Symbol: [copyout]		referenced in file: kern/uipc_syscalls.c
+References:
+238:		if ((error = copyout(mtod(nam, caddr_t), (caddr_t)uap->name,
+240:			error = copyout((caddr_t)&namelen,
+339:	error = copyout((caddr_t)sv, (caddr_t)uap->rsv, 2 * sizeof (int));
+699:		error = copyout((caddr_t)&msg.msg_controllen,
+744:		error = copyout((caddr_t)&msg, (caddr_t)uap->msg, sizeof(msg));
+825:			if (error = copyout(mtod(from, caddr_t),
+831:		    (error = copyout((caddr_t)&len, namelenp, sizeof (int)))) {
+869:			error = copyout((caddr_t)mtod(control, caddr_t),
+965:		error = copyout(mtod(m, caddr_t), uap->val, (u_int)valsize);
+967:			error = copyout((caddr_t)&valsize,
+1087:	error = copyout(mtod(m, caddr_t), (caddr_t)uap->asa, (u_int)len);
+1089:		error = copyout((caddr_t)&len, (caddr_t)uap->alen,
+1163:	if (error = copyout(mtod(m, caddr_t), (caddr_t)uap->asa, (u_int)len))
+1165:	error = copyout((caddr_t)&len, (caddr_t)uap->alen, sizeof (len));
+Definition:
+(no matches found)
+
+Symbol: [curproc]		referenced in file: kern/uipc_socket.c
+References:
+63:	struct proc *p = curproc;		/* XXX */
+313:	struct proc *p = curproc;		/* XXX */
+Definition:
+(no matches found)
+
+Symbol: [falloc]		referenced in file: kern/uipc_syscalls.c
+References:
+81:	if (error = falloc(p, &fp, &fd))
+214:	if (error = falloc(p, &fp, retval)) {
+316:	if (error = falloc(p, &fp1, &fd))
+323:	if (error = falloc(p, &fp2, &fd))
+993:	if (error = falloc(p, &rf, &fd))
+1000:	if (error = falloc(p, &wf, &fd))
+Definition:
+falloc            569 kern/kern_descrip.c falloc(p, resultfp, resultfd)
+
+Symbol: [ffree]		referenced in file: kern/uipc_syscalls.c
+References:
+88:		ffree(fp);
+344:	ffree(fp2);
+347:	ffree(fp1);
+1011:	ffree(wf);
+1014:	ffree(rf);
+Definition:
+ffree             615 kern/kern_descrip.c ffree(fp)
+
+Symbol: [free]		referenced in file: kern/uipc_mbuf.c
+References:
+74: * and place on cluster free list.
+98:		((union mcluster *)p)->mcl_next = mclfree;
+99:		mclfree = (union mcluster *)p;
+101:		mbstat.m_clfree++;
+108: * When MGET failes, ask protocols to free space when short of memory,
+193:m_free(m)
+203:m_freem(m)
+233:		m_freem(m);
+317:	m_freem(top);
+377:		n = m_free(n);
+458: * mbuf chain on success, frees it and returns null on failure.
+509:			n = m_free(n);
+512:		(void) m_free(m);
+518:	m_freem(n);
+555:				(void) m_free(n);
+620:				m_freem(top);
+Definition:
+free               46 net/bpf_compat.h #define free(cp, type) m_free(*(struct mbuf **)(cp - 8))
+
+Symbol: [gsignal]		referenced in file: kern/uipc_socket.c
+References:
+1020:		gsignal(-so->so_pgid, SIGURG);
+Definition:
+gsignal           590 kern/kern_sig.c  gsignal(pgid, signum)
+
+Symbol: [kmem_malloc]		referenced in file: kern/uipc_mbuf.c
+References:
+88:	p = (caddr_t)kmem_malloc(mb_map, ctob(npg), !nowait);
+Definition:
+kmem_malloc       270 vm/vm_kern.c     kmem_malloc(map, size, canwait)
+
+Symbol: [log]		referenced in file: kern/uipc_mbuf.c
+References:
+44:#include <sys/syslog.h>
+82:	static int logged;
+90:		if (logged == 0) {
+91:			logged++;
+92:			log(LOG_ERR, "mb_map full\n");
+Definition:
+log               242 kern/subr_prf.c  log(int level, const char *fmt, ...)
+
+Symbol: [malloc]		referenced in file: kern/uipc_mbuf.c
+References:
+39:#include <sys/malloc.h>
+88:	p = (caddr_t)kmem_malloc(mb_map, ctob(npg), !nowait);
+Definition:
+malloc             45 net/bpf_compat.h #define malloc(size, type, canwait) bpf_alloc(size, canwait)
+
+Symbol: [mb_map]		referenced in file: kern/uipc_mbuf.c
+References:
+50:extern	vm_map_t mb_map;
+88:	p = (caddr_t)kmem_malloc(mb_map, ctob(npg), !nowait);
+92:			log(LOG_ERR, "mb_map full\n");
+Definition:
+(no matches found)
+
+Symbol: [memcpy]		referenced in file: net/if.c
+References:
+Definition:
+(no matches found)
+
+Symbol: [microtime]		referenced in file: netinet/ip_icmp.c
+References:
+565:	microtime(&atv);
+Definition:
+(no matches found)
+
+Symbol: [ovbcopy]		referenced in file: net/slcompress.c
+References:
+66:#define ovbcopy bcopy
+512:			(void) ovbcopy(cp, (caddr_t)((int)cp &~ 3), len);
+Definition:
+(no matches found)
+
+Symbol: [panic]		referenced in file: kern/uipc_mbuf.c
+References:
+69:	panic("mbinit");
+267:		panic("m_copym");
+272:			panic("m_copym");
+283:				panic("m_copym");
+335:		panic("m_copydata");
+338:			panic("m_copydata");
+346:			panic("m_copydata");
+Definition:
+panic              99 kern/subr_prf.c  panic(const char *fmt, ...)
+
+Symbol: [pfind]		referenced in file: kern/uipc_socket.c
+References:
+1021:	else if (so->so_pgid > 0 && (p = pfind(so->so_pgid)) != 0)
+Definition:
+pfind             133 kern/kern_proc.c pfind(pid)
+
+Symbol: [recvit]		referenced in file: kern/uipc_syscalls.c
+References:
+632:	return (recvit(p, uap->s, &msg, (caddr_t)uap->fromlenaddr, retval));
+658:	return (recvit(p, uap->s, &msg, (caddr_t)0, retval));
+696:	error = recvit(p, uap->s, &msg, (caddr_t)&uap->msg->msg_namelen, retval);
+742:	if ((error = recvit(p, uap->s, &msg, (caddr_t)0, retval)) == 0) {
+752:SYSCALL_PREFIX(recvit)(p, s, mp, namelenp, retsize)
+Definition:
+recvit            745 kern/uipc_syscalls.c recvit(p, s, mp, namelenp, retsize)
+
+Symbol: [selrecord]		referenced in file: kern/sys_socket.c
+References:
+148:		selrecord(p, &so->so_rcv.sb_sel);
+157:		selrecord(p, &so->so_snd.sb_sel);
+166:		selrecord(p, &so->so_rcv.sb_sel);
+Definition:
+selrecord         636 kern/sys_generic.c selrecord(selector, sip)
+
+Symbol: [selwakeup]		referenced in file: kern/uipc_socket.c
+References:
+1023:	selwakeup(&so->so_rcv.sb_sel);
+Definition:
+selwakeup         657 kern/sys_generic.c selwakeup(sip)
+
+Symbol: [setsoftnet]		referenced in file: net/if_ethersubr.c
+References:
+Definition:
+setsoftnet         45 net/netisr.h     #define	setsoftnet()	mtpr(SIRR, 12)
+
+Symbol: [splimp]		referenced in file: kern/uipc_mbuf.c
+References:
+63:	s = splimp();
+75: * Must be called at splimp.
+144:	int s = splimp();
+Definition:
+(no matches found)
+
+Symbol: [splnet]		referenced in file: kern/sys_socket.c
+References:
+139:	register int s = splnet();
+Definition:
+(no matches found)
+
+Symbol: [splx]		referenced in file: kern/sys_socket.c
+References:
+145:			splx(s);
+154:			splx(s);
+163:			splx(s);
+170:	splx(s);
+Definition:
+(no matches found)
+
+Symbol: [suser]		referenced in file: net/if.c
+References:
+489:		if (error = suser(p->p_ucred, &p->p_acflag))
+508:		if (error = suser(p->p_ucred, &p->p_acflag))
+515:		if (error = suser(p->p_ucred, &p->p_acflag))
+Definition:
+suser             450 kern/kern_prot.c suser(cred, acflag)
+
+Symbol: [sysctl_int]		referenced in file: netinet/ip_icmp.c
+References:
+586:		return (sysctl_int(oldp, oldlenp, newp, newlen, &icmpmaskrepl));
+Definition:
+sysctl_int        359 kern/kern_sysctl.c sysctl_int(oldp, oldlenp, newp, newlen, valp)
+
+Symbol: [tick]		referenced in file: kern/uipc_socket.c
+References:
+900:			val = tv->tv_sec * hz + tv->tv_usec / tick;
+1001:			    (val % hz) / tick;
+Definition:
+(no matches found)
+
+Symbol: [time]		referenced in file: net/if_ethersubr.c
+References:
+113:	ifp->if_lastchange = time;
+133:			    time.tv_sec < rt->rt_rmx.rmx_expire)
+319:	ifp->if_lastchange = time;
+Definition:
+(no matches found)
+
+Symbol: [tsleep]		referenced in file: kern/uipc_socket.c
+References:
+176:				if (error = tsleep((caddr_t)&so->so_timeo,
+Definition:
+tsleep            281 kern/kern_synch.c tsleep(ident, priority, wmesg, timo)
+
+Symbol: [uiomove]		referenced in file: kern/uipc_socket.c
+References:
+422:			error = uiomove(mtod(m, caddr_t), (int)len, uio);
+511:			error = uiomove(mtod(m, caddr_t),
+677:			error = uiomove(mtod(m, caddr_t) + moff, (int)len, uio);
+Definition:
+uiomove            47 kern/kern_subr.c uiomove(cp, n, uio)
+
+Symbol: [unp_connect2]		referenced in file: kern/uipc_syscalls.c
+References:
+1007:	if (error = unp_connect2(wso, rso))
+Definition:
+unp_connect2      481 kern/uipc_usrreq.c unp_connect2(so, so2)
+
+Symbol: [wakeup]		referenced in file: kern/uipc_socket.c
+References:
+1023:	selwakeup(&so->so_rcv.sb_sel);
+Definition:
+wakeup            496 kern/kern_synch.c wakeup(ident)
+

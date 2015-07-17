@@ -1,0 +1,53 @@
+for i in libkern kern net netinet ; do \
+	cd $i; make;  cd ..; \
+done
+ld -o linktest kern/sys_socket.o kern/uipc_domain.o kern/uipc_mbuf.o  kern/uipc_socket.o kern/uipc_socket2.o  kern/uipc_syscalls.o kern/sys_generic.o kern/kern_subr.o net/bpf.o  net/bpf_filter.o net/if.o net/if_ethersubr.o  net/if_loop.o net/if_sl.o net/radix.o net/raw_cb.o  net/raw_usrreq.o net/route.o net/rtsock.o net/slcompress.o  netinet/if_ether.o netinet/igmp.o netinet/in.o netinet/in_cksum.o  netinet/in_pcb.o netinet/in_proto.o netinet/ip_icmp.o  netinet/ip_input.o netinet/ip_mroute.o netinet/ip_output.o  netinet/raw_ip.o netinet/tcp_debug.o netinet/tcp_input.o  netinet/tcp_output.o netinet/tcp_subr.o netinet/tcp_timer.o  netinet/tcp_usrreq.o netinet/udp_usrreq.o libkern/adddi3.o  libkern/anddi3.o libkern/ashldi3.o libkern/ashrdi3.o  libkern/bcmp.o libkern/cmpdi2.o libkern/divdi3.o  libkern/ffs.o libkern/iordi3.o libkern/locc.o  libkern/lshldi3.o libkern/lshrdi3.o  libkern/moddi3.o libkern/muldi3.o libkern/negdi2.o  libkern/notdi2.o libkern/qdivrem.o libkern/random.o  libkern/rindex.o libkern/scanc.o libkern/skpc.o  libkern/strcat.o libkern/strcmp.o libkern/strcpy.o  libkern/strlen.o libkern/strncpy.o libkern/subdi3.o  libkern/ucmpdi2.o libkern/udivdi3.o libkern/umoddi3.o  libkern/xordi3.o
+Undefined			first referenced
+ symbol  			    in file
+_insque                             net/raw_cb.o  (symbol belongs to implicit dependency /usr/lib/libc.so.1)
+panic                               kern/uipc_mbuf.o
+tsleep                              kern/uipc_socket.o
+splx                                kern/sys_socket.o
+hzto                                kern/sys_generic.o
+_remque                             net/raw_cb.o  (symbol belongs to implicit dependency /usr/lib/libc.so.1)
+splimp                              kern/uipc_mbuf.o
+pfind                               kern/sys_generic.o
+suibyte                             kern/kern_subr.o
+tick                                kern/uipc_socket.o
+splnet                              kern/sys_socket.o
+suser                               net/if.o
+malloc                              kern/uipc_mbuf.o  (symbol belongs to implicit dependency /usr/lib/libc.so.1)
+copyout                             kern/uipc_syscalls.o
+.umul                               kern/uipc_socket.o  (symbol belongs to implicit dependency /usr/lib/libc.so.1)
+.urem                               net/if.o  (symbol belongs to implicit dependency /usr/lib/libc.so.1)
+.rem                                kern/uipc_socket.o  (symbol belongs to implicit dependency /usr/lib/libc.so.1)
+subyte                              kern/kern_subr.o
+itimerfix                           kern/sys_generic.o
+timeout                             kern/uipc_domain.o
+anp_sys_malloc                      kern/uipc_mbuf.o
+unsleep                             kern/sys_generic.o
+microtime                           netinet/ip_icmp.o
+curproc                             kern/uipc_socket.o
+splclock                            kern/sys_generic.o
+free                                kern/uipc_mbuf.o  (symbol belongs to implicit dependency /usr/lib/libc.so.1)
+setsoftnet                          net/if_ethersubr.o
+falloc                              kern/uipc_syscalls.o
+ffree                               kern/uipc_syscalls.o
+hz                                  kern/uipc_domain.o
+wakeup                              kern/uipc_socket.o
+copyin                              kern/uipc_syscalls.o
+ovbcopy                             net/slcompress.o
+anp_sys_free                        kern/uipc_socket2.o
+anp_sys_time                        kern/sys_generic.o
+.udiv                               kern/uipc_socket2.o  (symbol belongs to implicit dependency /usr/lib/libc.so.1)
+sysctl_int                          netinet/ip_icmp.o
+.div                                kern/uipc_domain.o  (symbol belongs to implicit dependency /usr/lib/libc.so.1)
+memcpy                              net/if.o  (symbol belongs to implicit dependency /usr/lib/libc.so.1)
+timevaladd                          kern/sys_generic.o
+anp_sys_log                         kern/uipc_mbuf.o
+setrunnable                         kern/sys_generic.o
+splhigh                             kern/sys_generic.o
+ld: fatal: Symbol referencing errors. No output written to linktest
+*** Error code 1
+make: Fatal error: Command failed for target `linktest'
+Current working directory /export/home/antony/src/anp/generic
